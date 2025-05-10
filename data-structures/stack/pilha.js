@@ -1,9 +1,3 @@
-/* Classe pilha é intuitiva; pode adicionar ao pico e apenas retirar do pico; exemplos de 
-uso se relacionam com a possibilidade de retornar um evento de cada vez: Ctrl + Z; o histórico
-do Google... 
-Stack/Pilha*/ 
-
-
 class Pilha {
     constructor() {
         this.itens = [];
