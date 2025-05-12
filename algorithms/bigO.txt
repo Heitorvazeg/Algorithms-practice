@@ -1,0 +1,25 @@
+"How code slows as data grows"
+Descreve a performance do algoritmo enquanto os dados aumentam.
+Analisa os passos para completar o algoritmo.
+Normalmente se ignora operações pequenas.
+
+O(n); O(log n)... N é a quantidade de dados.
+
+O(n): Linear time. O cresce linearmente com a quantidade de dados.
+Exemplo:
+O(n) :
+int addup(int n)
+soma = 0
+
+for (int i = 0; i <= n; i++)
+sum += i                O(n) pq faz a operação n vezes.
+
+O(1):
+int sum = n * (n + 1)/2 O(1) pq faz apenas 3 operações.
+
+Tipos:
+O(1): Tempo constante para dados.
+0(log n): Tempo logaritmico. (binary search possui O(log n)).
+O(n): Tempo linear. O tempo cresce proporcionalmente à quantidade de dados. Loops por elementos.
+Searching em uma linkedlist.
+O(n log n): Quase linear. QuickSort, MergeSort, HeapSort.

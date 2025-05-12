@@ -1,0 +1,30 @@
+"When a thing is defined in terms of itself", ?
+Aplica o resultado de um procedimento ao próprio procedimento.
+Um metodo recursivo chama a si mesmo. Divide um problema em sub-problemas do mesmo tipo que o original.
+Torna fácil ler e escrever.
+Torna facil debugs.
+Pode ser devagar e usar muita memoria.
+
+Caso base e recursivo.
+Base: Situação em que você quer parar o procedimento.
+Recursivo: Situação em que vc quer continuar o procedimento.
+Exemplo:
+func walk(int steps) {
+    if steps < 1 return; //Caso base//
+    fmt.Println("Você deu um passo!") //Caso Recursivo//
+    walk(steps - 1)
+}
+Ao inves de iterar para resolver o problema chama a função em si mesma.
+
+Call stack: Pilha para execução do programa. Em recursão aumenta mt a call stack por chamar a msm
+função varias vezes sem fechar.
+
+func fatorial(int num) {
+    if num <= 1 return 1;
+    return num * fatorial(num - 1)
+}
+
+func Elevado(base, expoente int) {
+    if expoente < 1 return 1;
+    return base * Elevado(base, expoente -1)
+}
