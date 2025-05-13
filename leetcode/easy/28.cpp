@@ -3,7 +3,6 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        int count = 0;
         int hLen = haystack.length();
         int nLen = needle.length();
 
