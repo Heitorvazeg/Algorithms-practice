@@ -1,0 +1,4 @@
+Uma técnica de otimização para resolver problemas que podem ser divididos em problemas menores
+que se repetem.
+1- Defina solução para os subproblemas.
+2- Guardar essas soluções para usar dps.(memoization)

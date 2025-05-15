@@ -42,18 +42,9 @@ void AdjacencyMatrix()  {
 }
 
 void AdjacencyList() {
-    struct Node {
-        int destino;
-        Node* prox;
-
-        Node(int d) {
-            destino = d;
-            prox = nullptr;
-        }
-    };
 };
 
-class Graph {
+class GraphM {
     private:
 
     int node;
@@ -62,7 +53,7 @@ class Graph {
 
     public:
 
-    Graph(int nodes, bool ehdirect = false) {
+    GraphM(int nodes, bool ehdirect = false) {
         node = nodes;
         direct = ehdirect;
         matriz = std::vector<std::vector<int>>(node, std::vector<int>(node, 0));
@@ -87,3 +78,39 @@ class Graph {
         return matriz[u][v] != 0;
     }
 };
+
+
+struct Node {
+    int destino;
+    Node* next;
+
+    Node(int d) {
+        destino = d;
+        next = nullptr;
+    }
+};
+
+void inserirNoInicio(Node*& head, int valor) {
+    Node* novoNode = new Node(valor);
+    novoNode -> next = head;
+    head = novoNode; /*Refere a si mesmo pq é o Head, o primeiro.*/
+};
+
+void inserirNoMeio(Node*& head, int valor, int posicao) {
+    if (posicao == 0) {
+        inserirNoInicio(head, valor);
+        return;
+    }
+
+    Node* novo = new Node(valor); /*Novo possui o endereço de memoria no novo nó criado*/
+    Node* atual = head; /*vai percorrer a lista; começa apontando ao head*/
+
+    for (int i = 0; i < posicao - 1 && atual != nullptr; i++) {
+        atual = atual->next; /*move pela lista usando o next dos nós*/
+    }
+
+    if (atual != nullptr) { /*Nao pode ser o ultimo pq ele aponta para nullptr*/
+        novo -> next = atual->next; /*O novo nó pega o ponteiro do anterior*/
+        atual -> next = novo; /*O anterior recebe o ponteiro para o novo*/
+    }
+}
