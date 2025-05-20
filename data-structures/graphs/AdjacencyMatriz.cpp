@@ -14,6 +14,8 @@ O(v) em time, O(V + E) em espaço.*/
 
 int nodes = 5;
 
+void AdjacencyMatrix();
+
 int main() {
 }
 
@@ -40,9 +42,6 @@ void AdjacencyMatrix()  {
         std::cout << "\n";
     }
 }
-
-void AdjacencyList() {
-};
 
 class GraphM {
     private:
@@ -75,42 +74,15 @@ class GraphM {
     }
 
     bool edgeExist(int u, int v) {
-        return matriz[u][v] != 0;
+        return matriz[u][v] != 0;    std::vector<Node*> graph(nodes);
+    for (int i = 0; i < nodes; i++) {
+        graph[i] = new Node(i);
+    }
+
+    graph[0]->vizinhos = {graph[1], graph[2]};
+    graph[1]->vizinhos = {graph[3], graph[4]};
+
+    std::vector<bool> visited(nodes, false);
+    dfs(graph[0], visited);
     }
 };
-
-
-struct Node {
-    int destino;
-    Node* next;
-
-    Node(int d) {
-        destino = d;
-        next = nullptr;
-    }
-};
-
-void inserirNoInicio(Node*& head, int valor) {
-    Node* novoNode = new Node(valor);
-    novoNode -> next = head;
-    head = novoNode; /*Refere a si mesmo pq é o Head, o primeiro.*/
-};
-
-void inserirNoMeio(Node*& head, int valor, int posicao) {
-    if (posicao == 0) {
-        inserirNoInicio(head, valor);
-        return;
-    }
-
-    Node* novo = new Node(valor); /*Novo possui o endereço de memoria no novo nó criado*/
-    Node* atual = head; /*vai percorrer a lista; começa apontando ao head*/
-
-    for (int i = 0; i < posicao - 1 && atual != nullptr; i++) {
-        atual = atual->next; /*move pela lista usando o next dos nós*/
-    }
-
-    if (atual != nullptr) { /*Nao pode ser o ultimo pq ele aponta para nullptr*/
-        novo -> next = atual->next; /*O novo nó pega o ponteiro do anterior*/
-        atual -> next = novo; /*O anterior recebe o ponteiro para o novo*/
-    }
-}
