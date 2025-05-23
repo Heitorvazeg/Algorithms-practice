@@ -10,7 +10,6 @@ Padrão backtracking:
         registrar solução
         return
     
-    para cada escolha possível:
         fazer escolha
         recursão com a escolha()
         desfazer escolha, senao for.

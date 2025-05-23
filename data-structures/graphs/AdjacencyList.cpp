@@ -28,17 +28,4 @@ int main() {
 
     graph[0]->vizinhos = {graph[1], graph[2]};
     graph[1]->vizinhos = {graph[3], graph[4]};
-
-    dfs(graph[0], visited);
-}
-
-void dfs(Node* node, std::vector<bool>& visited) {
-    visited[node->valor] = true;
-    std::cout << "Visited: " << node->valor << "\n";
-
-    for (Node* vizinho : node->vizinhos) {
-        if (!visited[vizinho->valor]) {
-            dfs(vizinho, visited);
-        }
-    }
 }
