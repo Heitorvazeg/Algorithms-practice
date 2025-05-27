@@ -14,13 +14,12 @@ int main() {
     int ok = ehPrimo(y);
 
     if (ok) {
-        for (int i = 1; i < k-1; i++) {
-            posicao++;
-        }
+        posicao += ((y * (y - 1)) / 2)-1;
     }
+
     for (int i = 0; i < k; i++) {
         if (ok) {
-            i = y;
+            i = y+1;
         }
         int g = gcd(y, posicao);
         posicao += g;
