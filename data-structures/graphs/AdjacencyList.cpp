@@ -8,7 +8,7 @@ int nodes = 5;
 
 struct Node {
     int valor;
-    std::vector<Node*> vizinhos;
+    std::vector<Node*> vizinhos; /*se tiver peso passa um vetor de pares vizinhos e pesos*/
 
     Node(int d) {
         valor = d;
