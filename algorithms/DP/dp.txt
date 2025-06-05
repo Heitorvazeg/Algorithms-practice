@@ -1,4 +1,26 @@
 Uma técnica de otimização para resolver problemas que podem ser divididos em problemas menores
-que se repetem.
-1- Defina solução para os subproblemas.
-2- Guardar essas soluções para usar dps.(memoization)
+que se repetem. Ao inves de resolver td com recursão normal, armazena resultados inter-
+mediarios. Precisa de uma decisão ótima: Escolher o maior, o menor, o mais barato...
+
+casos base: Como o problema começa?
+Estado: A decisão; a representação do subproblema; o ponto em q vc esta.
+Transição: E a forma de trocar de estados.
+Ex: Estado: N; Transição: D(N) = D(N-1) + D(N-2)
+
+top-down(memoization): Recursão+cache; evitar recomputar chamadas.
+Você começa resolvendo o problema original, mas sempre que precisa resolver um subproblema,
+verifica se ele já foi resolvido antes. Se sim, usa o valor salvo (cache).
+-Escreve uma função recursiva. -Cria uma estrutura de Cache. -Antes de resolver o sub-
+problema, verifica se já foi resolvido. -Se nao, resolve e guarda o resultado no cache.
+
+bottom-up(tabulation): Constroi solução passo a passo; preenche a tabela iterativamente.
+Em vez de recursão, você resolve todos os subproblemas menores primeiro,
+preenchendo uma tabela (vetor ou matriz) até chegar ao problema final.
+-Cria uma tabela cm tamanho adequado. -Define os casos base manualmente. -preenche
+a tabela em ordem, de subproblemas menores ate os maiores.
+
+tabulation: Bom pra evitar recursao e stack overflow; a ordem de resolução e clara e fixa;
+melhor performance.
+
+memoization: O problema e recursivo; 
+
