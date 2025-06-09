@@ -15,4 +15,6 @@ int main() {
     } else {
         cout << 2*(d-e);
     }
+
+    return 0;
 }
