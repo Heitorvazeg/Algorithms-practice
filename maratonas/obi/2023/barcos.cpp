@@ -55,6 +55,7 @@ int main() {
         pass = dfs(x, y, grafo, visited, n, pass, set);
         int max = 0;
         for (auto it = set.begin(); it != set.end(); it++) {
+            cout << *it << "\n";
             if (*it > max) {
                 max = *it;
             }
