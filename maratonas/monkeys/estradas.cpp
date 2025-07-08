@@ -2,7 +2,8 @@
 
 using namespace std;
 
-int dfs(vector<bool>& visited, vector<vector<int>>& grafo, int src, int count, int n, int dia) {
+int dfs(vector<bool>& visited, vector<vector<int>>& grafo, int src, int n, int dia) {
+    int count = 1;
     if (visited[src]) {
         return count;
     } else {
@@ -10,11 +11,10 @@ int dfs(vector<bool>& visited, vector<vector<int>>& grafo, int src, int count, i
     }
 
     for (int i = 0; i < n; i++) {
-        if (grafo[src][i] != 0 && !visited[src]) {
-            if (dia >= grafo[src][i]) {
-                count++;
+        if (grafo[src][i] != 0 && !visited[i]) {
+            if (dia >= grafo[src][i] && !visited[i] && dia >= grafo[src][i]) {
+                count += dfs(visited, grafo, i, n, dia);
             }
-            count = dfs(visited, grafo, i, count, n, dia);
         } 
     }
     return count;
@@ -43,8 +43,7 @@ int main() {
         cin >> dia;
 
         vector<bool> visited(grafo.size(), false);
-        int count = 1;
-        count = dfs(visited, grafo, 0, count, n, dia);
+        int count = dfs(visited, grafo, 0, n, dia);
         cout << count << "\n";
     }
 }
