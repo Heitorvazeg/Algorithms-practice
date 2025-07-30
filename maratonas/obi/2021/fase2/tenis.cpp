@@ -14,6 +14,7 @@ int main() {
 
     sort(v.begin(), v.end());
 
+
     int ans = abs((v[0] + v[3]) - (v[1] + v[2]));
 
     cout << ans;
