@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(0); 
+    cin.tie(0);
 
     int n;
     cin >> n;
@@ -29,7 +29,26 @@ int main() {
         }
 
         if (a > pqJovems.top().first) {
+            if (pqVelhos.size() < pqJovems.size()) {
+                pair<long long, int> maior;
+                maior.first = a;
+                maior.second = b;
+                pqVelhos.push(maior);
+                somaV += maior.second;
+                cout << abs(somaJ - somaV) << "\n";
+                continue;
+            } else if (a < pqVelhos.top().first) {
+                pair<long long, int> menor;
+                menor.first = a;
+                menor.second = b;
+                pqJovems.push(menor);
+                somaJ += menor.second;
+                cout << abs(somaJ - somaV) << "\n";
+                continue;
+            }
+
             pair<long long, int> menor = pqVelhos.top(); 
+            pqVelhos.pop();
             somaV -= menor.second;
             pqJovems.push(menor);
             somaJ += menor.second;
@@ -41,6 +60,24 @@ int main() {
             somaV += maior.second;
 
         } else {
+            if (pqJovems.size() < pqVelhos.size()) {
+                pair<long long, int> menor;
+                menor.first = a;
+                menor.second = b;
+                pqJovems.push(menor);
+                somaJ += menor.second;
+                cout << abs(somaJ - somaV) << "\n";
+                continue;
+            } else if (pqJovems.size() == pqVelhos.size()){
+                pair<long long, int> menor;
+                menor.first = a;
+                menor.second = b;
+                pqJovems.push(menor);
+                somaJ += menor.second;
+                cout << abs(somaJ - somaV) << "\n";
+                continue;
+            }
+
             pair<long long, int> maior = pqJovems.top();
             pqJovems.pop();
             somaJ -= maior.second;
