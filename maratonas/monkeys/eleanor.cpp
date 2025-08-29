@@ -22,7 +22,11 @@ int main() {
         if (x2%2 == 0) p++;
         if (x2%2 != 0) im++;
 
-        if ()
+        if (p == im) {
+
+        } else {
+            
+        }
 
         cout << p << " " << im << "\n";
     }
