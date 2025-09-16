@@ -2,17 +2,6 @@
 using namespace std;
 
 //
-bool is_fair_distribution(const vector<int>& a) {
-    int alice = 0, bob = 0;
-    for (int candy : a) {
-        if (alice <= bob)
-            alice += candy;
-        else
-            bob += candy;
-    }
-    return alice == bob;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -30,7 +19,8 @@ int main() {
     }
 
     sort(a.begin(), a.end()); // começar com ordem ordenada para gerar permutações
-
+    int alice = 0;
+    int bob = 0;
     do { // Faz pelo menos uma vez
         if (is_fair_distribution(a)) {
             for (int x : a)
