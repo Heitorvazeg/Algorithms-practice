@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 pair<int, int> dfs(vector<vector<int>>& tree, int src, int ant, int dist) {
     pair<int, int> r = {dist, src};
     for (auto it : tree[src]) {
