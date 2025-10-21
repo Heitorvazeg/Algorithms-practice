@@ -26,7 +26,8 @@ int main() {
     dist[1] = 0;
 
     while(!pq.empty()) {
-        auto [dis, no] = pq.top();
+        auto dis = pq.top().first;
+        auto no = pq.top().second;
         pq.pop();
 
         if (dis > dist[no]) continue;
